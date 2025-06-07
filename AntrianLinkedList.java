@@ -32,4 +32,25 @@ public class AntrianLinkedList {
             temp = temp.next;
         }
     }
+
+    public int jumlahAntrian() {
+        int count = 0;
+        Node temp = head;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    public Kendaraan layaniAntrian() {
+        if (head == null) {
+            System.out.println(">> Antrian kosong.");
+            return null;
+        }
+        Kendaraan dilayani = head.data;
+        head = head.next;
+        if (head == null) tail = null;
+            return dilayani;
+    }
 }

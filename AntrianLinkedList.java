@@ -29,6 +29,7 @@ public class AntrianLinkedList {
             System.out.println("Plat Nomor: " + temp.data.platNomor);
             System.out.println("Tipe: " + temp.data.jenisKendaraan);
             System.out.println("Merk: " + temp.data.merk);
+            System.out.println();
             temp = temp.next;
         }
     }

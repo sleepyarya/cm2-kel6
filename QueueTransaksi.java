@@ -9,7 +9,7 @@ public class QueueTransaksi {
     }
 
     public boolean isFull() {
-        return rear == size - 1;
+        return count == size;
     }
 
     public boolean isEmpty() {
@@ -18,38 +18,35 @@ public class QueueTransaksi {
 
     public void enqueue(TransaksiPengisian t) {
         if (isFull()) {
-            System.out.println("Riwayat transaksi penuh.");
+            System.out.println(">> Riwayat transaksi penuh.");
             return;
         }
         if (isEmpty()) {
             front = rear = 0;
         } else {
             rear++;
+            System.out.println(">> Transaksi berhasi dicatat");
         }
         transaksi[rear] = t;
         count++;
     }
-    // public void enqueue(TransaksiPengisian t) {
-    //     if (size == transaksi.length) {
-    //         System.out.println(">> Riwayat transaksi penuh!");
-    //         return;
-    //     }
-    //     transaksi[rear] = t;
-    //     rear = (rear + 1) % transaksi.length;
-    //     size++;
-    //     System.out.println(">> Transaksi berhasil dicatat.\n");
-    // }
 
     public void tampilkanRiwayat() {
-        if (size == 0) {
+        if (isEmpty()) {
             System.out.println(">> Belum ada transaksi.");
             return;
+        } else {
+            System.out.println("===============================");
+            System.out.println("-- Riwayat Transaksi --");
+            for (int i = 0; i < count; i++) {
+                System.out.println("===============================");
+                System.out.println("Transaksi ke " + (i + 1));
+                int idx = (front + i) % transaksi.length;
+                System.out.println(
+                        "No. Plat : " + transaksi[idx].kendaraan.platNomor + " || Total Harga : Rp "
+                                + transaksi[idx].totalBayar);
+            }
         }
-        System.out.println("-- Riwayat Transaksi --");
-        System.out.println("Daftar Transaksi:");
-        for (int i = 0; i < count; i++) {
-            int idx = (front + i) % transaksi.length;
-            System.out.println(transaksi[idx].kendaraan.platNomor + ": Rp " + transaksi[idx].totalBayar);
-        }
+
     }
 }

@@ -4,7 +4,7 @@ public class SPBUMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AntrianLinkedList antrian = new AntrianLinkedList();
-        QueueTransaksi transaksi = new QueueTransaksi(100);
+        QueueTransaksi transaksi = new QueueTransaksi(2);
 
         while (true) {
             System.out.println("========== MENU SPBU ==========");
@@ -16,7 +16,7 @@ public class SPBUMain {
             System.out.println("0. Keluar");
             System.out.print(">> Pilih menu: ");
             int pilih = sc.nextInt();
-            sc.nextLine(); // flush newline
+            sc.nextLine();
 
             switch (pilih) {
                 case 1:
@@ -41,20 +41,21 @@ public class SPBUMain {
                 case 4:
                     Kendaraan dilayani = antrian.layaniAntrian();
                     if (dilayani != null) {
-                    System.out.println("Petugas melayani " + dilayani.platNomor);
-                    System.out.print("Masukkan Jenis BBM: ");
-                    String jenisBBM = sc.nextLine();
-                    System.out.print("Masukkan Harga per liter: ");
-                    double harga = sc.nextDouble();
-                    System.out.print("Masukkan Jumlah liter: ");
-                    double liter = sc.nextDouble();
-                    sc.nextLine(); // flush newline
+                        System.out.println("Petugas melayani " + dilayani.platNomor);
+                        System.out.print("Masukkan Jenis BBM: ");
+                        String jenisBBM = sc.nextLine();
+                        System.out.print("Masukkan Harga per liter: ");
+                        double harga = sc.nextDouble();
+                        System.out.print("Masukkan Jumlah liter: ");
+                        double liter = sc.nextDouble();
+                        sc.nextLine();
 
-                    BBM bbm = new BBM(jenisBBM, harga);
-                    TransaksiPengisian t = new TransaksiPengisian(dilayani, bbm, liter);
-                    transaksi.enqueue(t);
-                }
-                break;
+                        BBM bbm = new BBM(jenisBBM, harga);
+                        TransaksiPengisian t = new TransaksiPengisian(dilayani, bbm, liter);
+                        transaksi.enqueue(t);
+
+                    }
+                    break;
 
                 case 5:
                     transaksi.tampilkanRiwayat();

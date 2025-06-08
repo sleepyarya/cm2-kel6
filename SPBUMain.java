@@ -4,7 +4,7 @@ public class SPBUMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AntrianLinkedList antrian = new AntrianLinkedList();
-        QueueTransaksi transaksi = new QueueTransaksi(2);
+        QueueTransaksi transaksi = new QueueTransaksi(5);
 
         while (true) {
             System.out.println("========== MENU SPBU ==========");
